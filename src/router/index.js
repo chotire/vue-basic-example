@@ -24,10 +24,10 @@ router.beforeEach((to, from, next) => {
   if (to.meta.unauthorized) {
     next();
   } else {
-    if (to.path === '/todo') {
-      next('/dashboard');
-      return;
-    }
+    // if (to.path === '/todo') {
+    //   next('/dashboard');
+    //   return;
+    // }
     next();
   }
 });
