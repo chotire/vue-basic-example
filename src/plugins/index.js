@@ -1,4 +1,5 @@
-import Vue from 'vue';
-import dialog from './dialog';
+import './dialog';
+import './filters';
+import vuetify from './vuetify';
 
-Vue.use(dialog);
+export { vuetify };

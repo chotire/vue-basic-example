@@ -14,5 +14,6 @@
   },
   "editor.tokenColorCustomizations": {
     "semanticTokenColorCustomizations": true
-  }
+  },
+  "editor.rulers": [100, 120],
 }

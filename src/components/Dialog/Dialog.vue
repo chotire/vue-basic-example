@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { ALERT, PROMPT } from './dialog-type';
+import { ALERT, PROMPT } from './type';
 
 export default {
   name: 'Dialog',

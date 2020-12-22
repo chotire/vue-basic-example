@@ -1,5 +1,4 @@
-import Dialog from '@/components/Dialog.vue';
-import { ALERT, CONFIRM, PROMPT } from '@/components/dialog-type';
+import { Dialog, ALERT, CONFIRM, PROMPT } from '@/components/Dialog';
 
 class Plugin {
   constructor(Vue) {

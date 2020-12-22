@@ -7,10 +7,12 @@
 </template>
 
 <script>
+import ErrorListenable from '@/mixins/error-listenable';
 import Layout from '@/layouts/Layout';
 
 export default {
   name: 'App',
+  mixins: [ErrorListenable],
   components: {
     Layout,
   },
