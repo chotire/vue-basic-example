@@ -1,33 +1,48 @@
 <template>
-  <div>
-    <v-system-bar app>
-      <router-link to="/"><v-icon>mdi-home</v-icon></router-link>
-      <v-spacer></v-spacer>
-      <v-icon>mdi-square</v-icon>
-      <v-icon>mdi-circle</v-icon>
-      <v-icon>mdi-triangle</v-icon>
-    </v-system-bar>
-    <v-navigation-drawer app permanent>
-      <v-sheet class="pa-4">
-        <v-avatar class="mb-4" color="grey darken-1" size="64"></v-avatar>
-        <div>chotire@gmail.com</div>
-      </v-sheet>
+  <v-app>
+    <v-navigation-drawer :mini-variant="mini" app permanent>
+      <v-list-item class="px-2">
+        <v-list-item-avatar class="mr-6">
+          <v-img src="https://blogpfthumb-phinf.pstatic.net/data1/2004/9/7/54/IMG_0406.jpg"></v-img>
+        </v-list-item-avatar>
+        chotire@gmail.com
+      </v-list-item>
       <v-divider></v-divider>
       <v-list dense>
         <v-list-item v-for="menu in menus" :key="menu.path" @click="go(menu.path)" link>
           <v-list-item-icon>
-            <v-icon>mdi-star</v-icon>
+            <v-icon>{{ menu.icon }}</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title>{{ menu.name }}</v-list-item-title>
+            <v-list-item-title>{{ menu.title }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
+      <template v-slot:append>
+        <v-list dense>
+          <v-list-item link>
+            <v-list-item-icon>
+              <v-icon>mdi-logout-variant</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title>Logout</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+      </template>
     </v-navigation-drawer>
+    <v-app-bar app>
+      <v-app-bar-nav-icon @click="mini = !mini"></v-app-bar-nav-icon>
+      <v-toolbar-title>OKR</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <router-link to="/"><v-icon>mdi-home</v-icon></router-link>
+      <v-icon>mdi-square</v-icon>
+      <v-icon>mdi-circle</v-icon>
+    </v-app-bar>
     <v-main>
       <slot></slot>
     </v-main>
-  </div>
+  </v-app>
 </template>
 
 <script>
@@ -35,9 +50,10 @@ export default {
   name: 'DefaultLayout',
   data() {
     return {
+      mini: true,
       menus: [
-        { name: 'Dashboard', path: '/dashboard' },
-        { name: 'TODO', path: '/todo' },
+        { title: 'Dashboard', icon: 'mdi-view-dashboard', path: '/dashboard' },
+        { title: 'TODO', icon: 'mdi-checkbox-marked', path: '/todo' },
       ],
     };
   },
@@ -57,6 +73,7 @@ a {
 }
 .v-main {
   background-color: #161616;
-  padding: 20px 0px 0px 280px !important;
+  margin-left: 20px;
+  // padding: 60px 0px 0px 80px !important;
 }
 </style>
