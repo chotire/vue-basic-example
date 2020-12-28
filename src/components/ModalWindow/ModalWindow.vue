@@ -1,6 +1,6 @@
 <template>
-  <v-dialog v-model="show" v-bind="$props">
-    <v-card>
+  <v-dialog v-model="show" v-bind="dialogOptions">
+    <v-card v-bind="cardOptions">
       <v-card-title>
         {{ title }}
         <v-spacer></v-spacer>
@@ -26,6 +26,8 @@
 </template>
 
 <script>
+import { merge } from 'lodash';
+
 export default {
   props: {
     value: Boolean,
@@ -48,6 +50,8 @@ export default {
       type: [String, Number],
       default: 'auto',
     },
+    // v-card options
+    loading: Boolean,
   },
   computed: {
     show: {
@@ -57,6 +61,17 @@ export default {
       set(value) {
         this.$emit('input', value);
       },
+    },
+    dialogOptions() {
+      const options = merge({}, this.$props);
+      delete options.value;
+      delete options.title;
+      delete options.loading;
+      return options;
+    },
+    cardOptions() {
+      const options = { loading: this.loading };
+      return options;
     },
   },
 };

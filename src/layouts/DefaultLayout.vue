@@ -54,6 +54,7 @@ export default {
       menus: [
         { title: 'Dashboard', icon: 'mdi-view-dashboard', path: '/dashboard' },
         { title: 'TODO', icon: 'mdi-checkbox-marked', path: '/todo' },
+        { title: 'Tree', icon: 'mdi-file-tree', path: '/tree' },
       ],
     };
   },

@@ -11,7 +11,7 @@
     <v-row>
       <v-col cols="12">
         <v-btn @click="requestApi">API</v-btn>
-        <v-btn @click="requestHttp">HTTP</v-btn>
+        <v-btn>HTTP</v-btn>
       </v-col>
     </v-row>
     <v-row>
@@ -19,8 +19,8 @@
     </v-row>
     <v-row>
       <v-col cols="12">
-        <v-btn @click="open = !open">Modal Window</v-btn>
-        <modal-window v-model="open" title="Objectives 입력">
+        <v-btn @click="openModal">Modal Window</v-btn>
+        <modal-window v-model="open" :loading="loading" title="Objectives 입력">
           <template #content>
             <v-text-field label="Objective 명을 입력하세요."></v-text-field>
           </template>
@@ -56,6 +56,7 @@ export default {
     return {
       price: 125000,
       open: false,
+      loading: false,
     };
   },
   methods: {
@@ -75,7 +76,11 @@ export default {
         .then(response => console.log(response.data))
         .catch(error => console.log(JSON.stringify(error)));
     },
-    requestHttp() {},
+    openModal() {
+      this.open = true;
+      this.loading = true;
+      setTimeout(() => (this.loading = false), 1500);
+    },
     comma,
   },
 };
