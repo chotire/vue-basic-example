@@ -15,5 +15,9 @@
   "editor.tokenColorCustomizations": {
     "semanticTokenColorCustomizations": true
   },
-  "editor.rulers": [100, 120],
+  "editor.rulers": [
+    100,
+    120
+  ],
+  "vetur.validation.template": false,
 }
