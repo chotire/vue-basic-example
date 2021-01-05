@@ -54,7 +54,7 @@ export default {
       menus: [
         { title: 'Dashboard', icon: 'mdi-view-dashboard', path: '/dashboard' },
         { title: 'TODO', icon: 'mdi-checkbox-marked', path: '/todo' },
-        { title: 'Tree', icon: 'mdi-file-tree', path: '/tree' },
+        { title: 'Tree', icon: 'mdi-file-tree', path: '/boards/work' },
       ],
     };
   },
@@ -74,7 +74,7 @@ a {
 }
 .v-main {
   background-color: #161616;
-  margin-left: 20px;
+  margin: 15px;
   // padding: 60px 0px 0px 80px !important;
 }
 </style>

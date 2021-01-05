@@ -266,4 +266,9 @@ export default {
 table > tbody > tr > td {
   border-bottom: none !important;
 }
+// tbody {
+//   tr:hover {
+//     background-color: transparent !important;
+//   }
+// }
 </style>
