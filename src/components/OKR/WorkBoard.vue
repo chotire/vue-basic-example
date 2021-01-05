@@ -19,7 +19,7 @@
                 {{ item.workNm }}
               </template>
               <template v-if="header.value === 'workEndDate'">
-                {{ format(item.workEndDate, 'MM.dd') }}
+                {{ item.workEndDate ? format(item.workEndDate, 'MM.dd') : '' }}
               </template>
               <template v-else-if="header.value === 'progress'">
                 <div class="d-flex">

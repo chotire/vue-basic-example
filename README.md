@@ -12,6 +12,10 @@
   - [ESLint](#eslint-1)
   - [Debug](#debug)
   - [jsconfig](#jsconfig)
+- [StroyBook](#stroybook)
+  - [StroyBook 설치](#stroybook-설치)
+  - [StroyBook 실행](#stroybook-실행)
+  - [Addons](#addons)
 
 # Pre-installed
 - [Visual Studio Code](https://code.visualstudio.com/download)
@@ -164,4 +168,29 @@ module.exports = {
     "dist"
   ]
 }
+```
+
+# StroyBook
+## StroyBook 설치
+```
+npx -p @storybook/cli sb init --type vue
+```
+
+## StroyBook 실행
+```
+npm run storybook
+```
+
+## Addons
+컴포넌트 내에서 css, scss 등의 스타일을 사용할 경우 loader를 설치
+```
+yarn add -D @storybook/preset-scss css-loader sass-loader style-loader
+```
+다음으로 `.storybook/main.js` 에 다음 설정 추가
+```
+// .storybook/main.js
+
+module.exports = {
+  addons: ['@storybook/preset-scss'],
+};
 ```
